@@ -1,0 +1,35 @@
+@import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/text.scss";
+@import "../../assets/styles/colors.scss";
+
+.hero-header-container {
+  height: calc(100vh - 3.5vw - 1.85vw);
+  width: 100vw;
+  background-image: url("../../assets/images/room-background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.flex-center {
+  @include flex-center;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text-container {
+  background-color: rgba($color: $background, $alpha: 0.3);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 1vw 3vw;
+}
+
+h1 {
+  margin: 0;
+}
+
+.subtitle {
+  @include subtitleStyle;
+}

@@ -1,5 +1,12 @@
-import React from "react";
+import { HeroHeader } from "../../components/HeroHeader/HeroHeader";
+import { LogoHeader } from "../../components/LogoHeader/LogoHeader";
+import "./HomePage.scss";
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <section className="homepage-container">
+      <LogoHeader />
+      <HeroHeader />
+    </section>
+  );
 };

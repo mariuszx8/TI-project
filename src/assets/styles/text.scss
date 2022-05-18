@@ -1,0 +1,21 @@
+@import "./colors.scss";
+
+@mixin grayButtonText {
+  font-weight: 500;
+  color: $black;
+  font-size: 1vw;
+}
+
+@mixin h1Style {
+  font-weight: 700;
+  color: $black;
+  font-size: 4.5vw;
+}
+
+@mixin subtitleStyle {
+  font-size: 1.8vw;
+}
+
+h1 {
+  @include h1Style;
+}
