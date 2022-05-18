@@ -1,0 +1,11 @@
+@import "../../assets/styles/mixins.scss";
+
+.form-container {
+  @include flex-center;
+  height: 5vw;
+
+  & > div {
+    width: 45%;
+    height: 100%;
+  }
+}

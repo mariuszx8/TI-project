@@ -1,3 +1,4 @@
+import { HeroHeaderForm } from "../HeroHeaderForm/HeroHeaderForm";
 import "./HeroHeader.scss";
 
 export const HeroHeader = () => {
@@ -9,6 +10,7 @@ export const HeroHeader = () => {
           <p className="subtitle">
             Umyjemy okna i podłogi, wytrzemy kurze, wyrzucimy śmieci...
           </p>
+          <HeroHeaderForm />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
-@import "../../assets/styles/colors.scss";
-@import "../../assets/styles/text.scss";
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/text.scss";
 
-button {
+button.gray-button {
   background-color: $gray;
   padding: 0.7vw 0.9vw;
   @include grayButtonText;

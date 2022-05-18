@@ -1,0 +1,29 @@
+@import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/text.scss";
+@import "../../../assets/styles/mixins.scss";
+
+.select-number-container {
+  height: 100%;
+  width: 100%;
+  background-color: $background;
+  display: flex;
+  align-items: center;
+
+  .control {
+    @include no-select;
+    @include flex-center;
+    width: 25%;
+    cursor: pointer;
+    font-size: 2vw;
+    font-weight: 700;
+    color: $black;
+  }
+
+  .value-container {
+    width: 50%;
+    font-size: 1.4vw;
+    font-weight: 700;
+    text-align: center;
+    color: $black;
+  }
+}

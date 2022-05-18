@@ -6,6 +6,12 @@
   font-size: 1vw;
 }
 
+@mixin actionButtonText {
+  font-weight: 700;
+  color: $accent-text;
+  font-size: 1.4vw;
+}
+
 @mixin h1Style {
   font-weight: 700;
   color: $black;
@@ -13,7 +19,7 @@
 }
 
 @mixin subtitleStyle {
-  font-size: 1.8vw;
+  font-size: 1.7vw;
 }
 
 h1 {

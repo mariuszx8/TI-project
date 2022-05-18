@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/svg/Logo";
-import { GrayButton } from "../Buttons/GrayButton";
+import { GrayButton } from "../Buttons/GrayButton/GrayButton";
 import "./LogoHeader.scss";
 
 export const LogoHeader = () => {
