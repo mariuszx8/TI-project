@@ -1,11 +1,46 @@
 @import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/breakpoints.scss";
 
 .form-container {
   @include flex-center;
   height: 5vw;
 
+  @media #{$tabletXL} {
+    height: 6vw;
+  }
+
+  @media #{$tablet} {
+    height: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media #{$mobileXL} {
+    margin-top: 10%;
+    height: 40%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  @media #{$mobile} {
+    margin-top: 20%;
+    height: 40%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   & > div {
     width: 45%;
     height: 100%;
+
+    @media #{$tablet} {
+      height: 50%;
+      width: 45%;
+    }
+
+    @media #{$mobile}, #{$mobileXL} {
+      height: 45%;
+      width: 100%;
+    }
   }
 }

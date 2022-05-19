@@ -3,13 +3,29 @@
 @import "../../assets/styles/colors.scss";
 
 .hero-header-container {
-  height: calc(100vh - 3.5vw - 1.85vw);
+  height: 90%;
   width: 100vw;
   background-image: url("../../assets/images/room-background.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  @media #{$laptop} {
+    height: 91%;
+  }
+
+  @media #{$tabletXL} {
+    height: 92%;
+  }
+
+  @media #{$tablet} {
+    height: 93%;
+  }
+
+  @media #{$mobile}, #{$mobileXL} {
+    height: 92%;
+  }
 }
 
 .flex-center {
@@ -23,7 +39,26 @@
   background-color: rgba($color: $background, $alpha: 0.3);
   backdrop-filter: blur(15px);
   border-radius: 16px;
-  padding: 0.8vw 3vw;
+  padding: 1.6vw 3.2vw;
+
+  @media #{$laptop} {
+    padding: 2.4vw 3.6vw;
+  }
+
+  @media #{$tabletXL} {
+    padding: 2.6vw 3.8vw;
+  }
+
+  @media #{$tablet} {
+    width: 80%;
+    padding: 3rem 0;
+  }
+
+  @media #{$mobile}, #{$mobileXL} {
+    width: 92%;
+    height: 70%;
+    padding: 2rem 1.2rem;
+  }
 }
 
 h1 {

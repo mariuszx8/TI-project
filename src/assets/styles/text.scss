@@ -1,25 +1,94 @@
 @import "./colors.scss";
+@import "./breakpoints.scss";
 
 @mixin grayButtonText {
   font-weight: 500;
   color: $black;
   font-size: 1vw;
+
+  @media #{$laptop} {
+    font-size: 1.4vw;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 1.6vw;
+  }
+
+  @media #{$tablet} {
+    font-size: 1.2rem;
+  }
+
+  @media #{$mobileXL} {
+    font-size: 1rem;
+  }
+
+  @media #{$mobile} {
+    font-size: 0.9rem;
+  }
 }
 
 @mixin actionButtonText {
   font-weight: 700;
   color: $accent-text;
   font-size: 1.4vw;
+
+  @media #{$laptop} {
+    font-size: 1.7vw;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 1.9vw;
+  }
+
+  @media #{$mobileXL} {
+    font-size: 1.3rem;
+  }
+
+  @media #{$mobile} {
+    font-size: 1.2rem;
+  }
 }
 
 @mixin h1Style {
   font-weight: 700;
   color: $black;
-  font-size: 4.5vw;
+  font-size: 4.2vw;
+
+  @media #{$laptop} {
+    font-size: 5vw;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 5.7vw;
+  }
+
+  @media #{$mobileXL} {
+    font-size: 2.4rem;
+  }
+
+  @media #{$mobile} {
+    font-size: 2.2rem;
+  }
 }
 
 @mixin subtitleStyle {
   font-size: 1.7vw;
+
+  @media #{$laptop} {
+    font-size: 2.2vw;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 2.5vw;
+  }
+
+  @media #{$mobileXL} {
+    font-size: 1.3rem;
+  }
+
+  @media #{$mobile} {
+    font-size: 1.1rem;
+  }
 }
 
 h1 {

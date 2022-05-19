@@ -6,7 +6,7 @@ export const SelectNumber = ({ label, value, setValue }) => {
   };
 
   const increaseValue = () => {
-    setValue(value + 1);
+    if (value < 20) setValue(value + 1);
   };
 
   return (
