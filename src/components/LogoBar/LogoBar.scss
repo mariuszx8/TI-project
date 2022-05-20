@@ -1,0 +1,34 @@
+@import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/text.scss";
+@import "../../assets/styles/breakpoints.scss";
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: $background;
+  padding: 0 4vw;
+  height: 10%;
+}
+
+svg {
+  height: 4.2rem;
+  width: initial;
+
+  @media #{$tablet} {
+    height: 55px;
+  }
+
+  @media #{$mobileXL} {
+    height: 50px;
+  }
+
+  @media #{$mobile} {
+    height: 50px;
+  }
+}
+
+h2 {
+  margin-left: 2rem;
+  @include pageTitleStyle;
+}

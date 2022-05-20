@@ -9,11 +9,21 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        main: "#2457c6",
+        main: "#00ebc7",
       },
       secondary: {
         main: "#00ebc7",
       },
+    },
+    typography: {
+      fontFamily: `"Jost", "Helvetica", "Arial", sans-serif`,
+      fontSize: 14,
+      fontWeightLight: 400,
+      fontWeightRegular: 500,
+      fontWeightMedium: 600,
+    },
+    stepper: {
+      iconColor: "#00ebc7",
     },
   });
 

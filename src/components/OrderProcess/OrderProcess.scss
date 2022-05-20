@@ -1,0 +1,35 @@
+@import "../../assets/styles/mixins.scss";
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
+
+.process-container {
+  max-width: 1000px;
+  width: 100%;
+  height: 80%;
+}
+
+.paper-content {
+  padding: 3rem 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.steps-container {
+  height: 100%;
+  margin-top: 2rem;
+}
+
+.mobile-step {
+  height: 100%;
+
+  .mobile-step-header {
+    background-color: $accent;
+    color: $black;
+    padding: 1.2rem 1rem;
+  }
+
+  .mobile-step-content {
+    padding: 2rem 1rem;
+  }
+}

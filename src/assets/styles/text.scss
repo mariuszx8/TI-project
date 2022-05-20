@@ -71,7 +71,34 @@
   }
 }
 
+h1 {
+  @include h1Style;
+}
+
+@mixin pageTitleStyle {
+  color: $black;
+  font-weight: 700;
+  font-size: 1.8rem;
+
+  @media #{$laptop} {
+    font-size: 1.7rem;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 1.6rem;
+  }
+
+  @media #{$mobileXL} {
+    font-size: 1.5rem;
+  }
+
+  @media #{$mobile} {
+    font-size: 1.2rem;
+  }
+}
+
 @mixin subtitleStyle {
+  color: $paragraph;
   font-size: 1.7vw;
 
   @media #{$laptop} {
@@ -89,8 +116,4 @@
   @media #{$mobile} {
     font-size: 1.1rem;
   }
-}
-
-h1 {
-  @include h1Style;
 }
