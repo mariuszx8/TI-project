@@ -16,7 +16,7 @@ export const HeroHeaderForm = () => {
     <div className="form-container">
       <div>
         <SelectNumber
-          label="Ilość pokoi:"
+          label="Liczba pokoi:"
           value={roomsCount}
           setValue={setRoomsCount}
         />

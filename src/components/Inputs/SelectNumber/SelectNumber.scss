@@ -5,7 +5,7 @@
 .select-number-container {
   height: 100%;
   width: 100%;
-  background-color: $background;
+  background-color: $gray;
   display: flex;
   align-items: center;
 
@@ -37,13 +37,13 @@
 
   .value-container {
     width: 50%;
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     font-weight: 700;
     text-align: center;
     color: $black;
 
     @media #{$laptop} {
-      font-size: 1.7vw;
+      font-size: 1.6vw;
     }
 
     @media #{$tabletXL} {

@@ -9,9 +9,13 @@ import "./OrderProcess.scss";
 import { Box } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Step1 } from "../OrderSteps/Step1";
 
 export const OrderProcess = () => {
+  const { state } = useLocation();
+  const { rooms } = state;
+
   const steps = [
     "Twoje mieszkanie",
     "Termin",
@@ -20,6 +24,9 @@ export const OrderProcess = () => {
     "Dane kontaktowe",
     "Płatność",
   ];
+
+  const orderProcessSteps = [<Step1 rooms={rooms} />, "test"];
+
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
 
@@ -38,7 +45,7 @@ export const OrderProcess = () => {
   const isDesktop = useMediaQuery("(min-width:768px)");
 
   return (
-    <div className="process-container">
+    <section className="process-container">
       <Paper
         sx={{ height: "100%", backgroundColor: "#fffffe", borderRadius: "8px" }}
         elevation={0}
@@ -67,7 +74,7 @@ export const OrderProcess = () => {
                   spacing={2}
                   sx={{ height: "100%" }}
                 >
-                  Content
+                  {orderProcessSteps[activeStep]}
                   <Box
                     sx={{
                       display: "flex",
@@ -90,6 +97,7 @@ export const OrderProcess = () => {
             </div>
           </div>
         ) : (
+          // Mobile
           <Stack
             direction="column"
             justifyContent="space-between"
@@ -122,6 +130,6 @@ export const OrderProcess = () => {
           </Stack>
         )}
       </Paper>
-    </div>
+    </section>
   );
 };

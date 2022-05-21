@@ -1,0 +1,68 @@
+@import "../../assets/styles/colors.scss";
+
+.step-container {
+  height: 100%;
+  background-color: $background;
+}
+
+.step-content {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.type-select,
+.rooms-selects,
+.kitchen-select {
+  height: 20%;
+}
+
+.step-description {
+  color: $paragraph;
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 10%;
+  p {
+    margin: 0.4rem;
+  }
+}
+
+.type-select-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: none;
+}
+
+.rooms-selects {
+  display: flex;
+  justify-content: space-between;
+
+  & > div {
+    width: 45%;
+    height: 100%;
+  }
+}
+
+.type-select,
+.kitchen-select {
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.kitchen-select {
+  & > div {
+    width: 70%;
+    height: 100%;
+  }
+}
