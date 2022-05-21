@@ -23,12 +23,12 @@ export const Step1 = ({ initialRooms }) => {
   };
 
   return (
-    <section className="step-container">
-      <div className="step-description">
+    <section className="step1-container">
+      <div className="step1-description">
         <p>Podaj szczegóły dotyczące twojego domu lub mieszkania.</p>
         <p>Pozwoli nam to lepiej przygotować się do realizacji usługi.</p>
       </div>
-      <div className="step-content">
+      <div className="step1-content">
         <div className="type-select">
           <div>
             <ToggleButtonGroup

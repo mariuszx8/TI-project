@@ -1,23 +1,48 @@
 @import "../../../assets/styles/colors.scss";
 
-.step-container {
+.step2-container {
   height: 100%;
   background-color: $background;
 }
 
-.step-content {
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.step-description {
+.step2-description {
   color: $paragraph;
   font-size: 1.2rem;
   font-weight: 500;
   height: 10%;
   p {
     margin: 0.3rem;
+  }
+}
+
+.step2-content {
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .time-select {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    .time-select-btn {
+      height: 45px;
+      background-color: $gray;
+      color: $black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      margin: 0.4rem;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $accent;
+        font-weight: 500;
+      }
+    }
   }
 }
