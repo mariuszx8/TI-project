@@ -9,6 +9,7 @@ import "./OrderProcess.scss";
 import { Box } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
 
 export const OrderProcess = () => {
   const steps = [
@@ -20,13 +21,18 @@ export const OrderProcess = () => {
     "Płatność",
   ];
   const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    if (activeStep === 0) {
+      navigate("/");
+    } else {
+      setActiveStep(activeStep - 1);
+    }
   };
 
   const isDesktop = useMediaQuery("(min-width:768px)");
@@ -38,6 +44,7 @@ export const OrderProcess = () => {
         elevation={0}
       >
         {isDesktop ? (
+          // Desktop
           <div className="paper-content">
             <div className="stepper-container">
               <Stepper activeStep={activeStep}>
@@ -69,16 +76,13 @@ export const OrderProcess = () => {
                       pt: 2,
                     }}
                   >
-                    <Button
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{ mr: 1 }}
-                    >
-                      Back
+                    <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
+                      {activeStep === 0 ? "Anuluj" : "Cofnij"}
                     </Button>
                     <Button variant="contained" onClick={handleNext}>
-                      {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                      {activeStep === steps.length - 1
+                        ? "Złóż zamówienie"
+                        : "Dalej"}
                     </Button>
                   </Box>
                 </Stack>
@@ -103,17 +107,15 @@ export const OrderProcess = () => {
               position="static"
               activeStep={activeStep}
               nextButton={
-                <Button size="small" onClick={handleNext}>
-                  {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                <Button size="medium" onClick={handleNext}>
+                  {activeStep === steps.length - 1
+                    ? "Złóż zamówienie"
+                    : "Dalej"}
                 </Button>
               }
               backButton={
-                <Button
-                  size="small"
-                  onClick={handleBack}
-                  disabled={activeStep === 0}
-                >
-                  Back
+                <Button color="inherit" size="medium" onClick={handleBack}>
+                  {activeStep === 0 ? "Anuluj" : "Cofnij"}
                 </Button>
               }
             />

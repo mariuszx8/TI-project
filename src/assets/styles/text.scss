@@ -117,3 +117,9 @@ h1 {
     font-size: 1.1rem;
   }
 }
+
+@mixin mobileStepperHeader {
+  color: $black;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
