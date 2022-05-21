@@ -10,7 +10,8 @@ import { Box } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Step1 } from "../OrderSteps/Step1";
+import { Step1 } from "../OrderSteps/Step1/Step1";
+import { Step2 } from "../OrderSteps/Step2/Step2";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
@@ -25,7 +26,7 @@ export const OrderProcess = () => {
     "Płatność",
   ];
 
-  const orderProcessSteps = [<Step1 rooms={rooms} />, "test"];
+  const orderProcessSteps = [<Step1 initialRooms={rooms} />, <Step2 />, "test"];
 
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();

@@ -22,6 +22,11 @@ button {
 }
 
 // Styles for MUI Toggle Button in Toggle Group
+button.MuiToggleButton-root {
+  background-color: $gray !important;
+  border: none !important;
+}
+
 button.MuiToggleButton-root.Mui-selected {
   background-color: $accent !important;
   border: none !important;
