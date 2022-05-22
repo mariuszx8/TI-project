@@ -26,23 +26,5 @@
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
-
-    .time-select-btn {
-      height: 45px;
-      background-color: $gray;
-      color: $black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      margin: 0.4rem;
-      border-radius: 8px;
-      cursor: pointer;
-
-      &.selected {
-        background-color: $accent;
-        font-weight: 500;
-      }
-    }
   }
 }

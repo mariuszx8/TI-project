@@ -6,6 +6,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { pl } from "date-fns/locale";
 import { eachMinuteOfInterval, endOfDay, format, startOfDay } from "date-fns";
+import { TimeSelect } from "../../Buttons/TimeSelect/TimeSelect";
 
 export const Step2 = () => {
   const [date, setDate] = useState(new Date());
@@ -35,7 +36,6 @@ export const Step2 = () => {
 
   const handleSetTime = (value) => {
     setTime(value);
-    console.log(value);
   };
 
   return (
@@ -63,15 +63,15 @@ export const Step2 = () => {
         </LocalizationProvider>
         <div className="time-select">
           {selectTime.map((select, index) => (
-            <div
-              className="time-select-btn"
+            <TimeSelect
               key={index}
-              onClick={() => {
-                handleSetTime(select.value);
-              }}
+              label={select.label}
+              value={select.value}
+              setTimeHandler={handleSetTime}
+              timeValue={time}
             >
               {select.label}
-            </div>
+            </TimeSelect>
           ))}
         </div>
       </div>
