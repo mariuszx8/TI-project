@@ -123,3 +123,8 @@ h1 {
   font-weight: 600;
   font-size: 1.2rem;
 }
+
+@mixin errorText {
+  color: $error;
+  font-size: 13px;
+}

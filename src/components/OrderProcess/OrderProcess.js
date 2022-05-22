@@ -12,10 +12,14 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Step1 } from "../OrderSteps/Step1/Step1";
 import { Step2 } from "../OrderSteps/Step2/Step2";
+import { Step3 } from "../OrderSteps/Step3/Step3";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
   const { rooms } = state;
+
+  const [activeStep, setActiveStep] = useState(0);
+  const navigate = useNavigate();
 
   const steps = [
     "Twoje mieszkanie",
@@ -26,10 +30,12 @@ export const OrderProcess = () => {
     "Płatność",
   ];
 
-  const orderProcessSteps = [<Step1 initialRooms={rooms} />, <Step2 />, "test"];
-
-  const [activeStep, setActiveStep] = useState(0);
-  const navigate = useNavigate();
+  const orderProcessSteps = [
+    <Step1 initialRooms={rooms} />,
+    <Step2 />,
+    <Step3 />,
+    "test",
+  ];
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -87,11 +93,26 @@ export const OrderProcess = () => {
                     <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
                       {activeStep === 0 ? "Anuluj" : "Cofnij"}
                     </Button>
-                    <Button variant="contained" onClick={handleNext}>
-                      {activeStep === steps.length - 1
-                        ? "Złóż zamówienie"
-                        : "Dalej"}
-                    </Button>
+                    {activeStep === 2 ? (
+                      <Button
+                        variant="contained"
+                        onClick={handleNext}
+                        form="address-form"
+                        type="submit"
+                      >
+                        Dalej
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="contained"
+                        onClick={handleNext}
+                        type="button"
+                      >
+                        {activeStep === steps.length - 1
+                          ? "Złóż zamówienie"
+                          : "Dalej"}
+                      </Button>
+                    )}
                   </Box>
                 </Stack>
               )}
