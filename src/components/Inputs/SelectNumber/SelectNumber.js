@@ -1,23 +1,20 @@
 import "./SelectNumber.scss";
 
-export const SelectNumber = ({ label, value, setValue }) => {
-  const decreaseValue = () => {
-    if (value > 1) setValue(value - 1);
-  };
-
-  const increaseValue = () => {
-    if (value < 20) setValue(value + 1);
-  };
-
+export const SelectNumber = ({
+  label,
+  value,
+  decrementValue,
+  incrementValue,
+}) => {
   return (
     <div className="select-number-container">
-      <div className="control" onClick={decreaseValue}>
+      <div className="control" onClick={decrementValue}>
         -
       </div>
       <div className="value-container">
         {label} {value}
       </div>
-      <div className="control" onClick={increaseValue}>
+      <div className="control" onClick={incrementValue}>
         +
       </div>
     </div>

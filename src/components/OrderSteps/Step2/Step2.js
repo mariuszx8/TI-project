@@ -7,10 +7,14 @@ import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { pl } from "date-fns/locale";
 import { eachMinuteOfInterval, endOfDay, format, startOfDay } from "date-fns";
 import { TimeSelect } from "../../Buttons/TimeSelect/TimeSelect";
+import { useSelector } from "react-redux";
 
 export const Step2 = () => {
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState();
+
+  const step1 = useSelector((state) => state.step1.value);
+  console.log(step1);
 
   const now = new Date();
   const maxDate = new Date(

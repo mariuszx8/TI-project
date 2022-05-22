@@ -15,6 +15,7 @@ import { Step2 } from "../OrderSteps/Step2/Step2";
 import { Step3 } from "../OrderSteps/Step3/Step3";
 import { Step4 } from "../OrderSteps/Step4/Step4";
 import { Step5 } from "../OrderSteps/Step5/Step5";
+import { Step6 } from "../OrderSteps/Step6/Step6";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
@@ -22,6 +23,8 @@ export const OrderProcess = () => {
 
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
+
+  // Steps data
 
   const steps = [
     "Twoje mieszkanie",
@@ -38,7 +41,7 @@ export const OrderProcess = () => {
     <Step3 />,
     <Step4 />,
     <Step5 />,
-    "test",
+    <Step6 />,
   ];
 
   const handleNext = () => {
