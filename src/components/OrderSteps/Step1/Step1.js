@@ -8,7 +8,7 @@ import CountertopsIcon from "@mui/icons-material/Countertops";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import "./Step1.scss";
 import { useDispatch } from "react-redux";
-import { saveData } from "../../../store/step1Slice";
+import { saveData } from "../../../store/orderSlice";
 
 export const Step1 = ({ initialRooms }) => {
   const dispatch = useDispatch();

@@ -1,20 +1,24 @@
 import "./Step2.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { pl } from "date-fns/locale";
-import { eachMinuteOfInterval, endOfDay, format, startOfDay } from "date-fns";
+import {
+  eachMinuteOfInterval,
+  endOfDay,
+  format,
+  isEqual,
+  startOfDay,
+  startOfTomorrow,
+} from "date-fns";
 import { TimeSelect } from "../../Buttons/TimeSelect/TimeSelect";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { saveData } from "../../../store/orderSlice";
 
 export const Step2 = () => {
-  const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState();
-
-  const step1 = useSelector((state) => state.step1.value);
-  console.log(step1);
+  const dispatch = useDispatch();
 
   const now = new Date();
   const maxDate = new Date(
@@ -22,6 +26,11 @@ export const Step2 = () => {
     now.getMonth() + 2,
     now.getDate()
   );
+  const firstDate =
+    now.getDate() === 0 ? startOfTomorrow(now) : startOfDay(now);
+
+  const [date, setDate] = useState(now);
+  const [time, setTime] = useState(firstDate);
 
   const selectTime = [
     ...eachMinuteOfInterval(
@@ -35,12 +44,24 @@ export const Step2 = () => {
           label: format(dateEl, "HH:mm"),
         };
       }),
-    { value: startOfDay(new Date()), label: "Dowolna godzina" },
+    { value: firstDate, label: "Dowolna godzina" },
   ];
 
   const handleSetTime = (value) => {
     setTime(value);
   };
+
+  const getTimeValue = () => {
+    return isEqual(time, firstDate) ? "Dowolna godzina" : format(time, "HH:mm");
+  };
+
+  useEffect(() => {
+    const step2 = {
+      date: format(date, "dd.MM.yyyy"),
+      time: getTimeValue(),
+    };
+    dispatch(saveData(step2));
+  }, [date, time, dispatch]);
 
   return (
     <section className="step2-container">

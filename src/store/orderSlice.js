@@ -9,15 +9,16 @@ const initialState = {
   },
 };
 
-export const step1Slice = createSlice({
-  name: "step1",
+export const orderSlice = createSlice({
+  name: "orderData",
   initialState,
   reducers: {
     saveData: (state, action) => {
-      state.value = action.payload;
+      state.value = { ...state.value, ...action.payload };
+      console.log(state.value);
     },
   },
 });
 
-export const { saveData } = step1Slice.actions;
-export default step1Slice.reducer;
+export const { saveData } = orderSlice.actions;
+export default orderSlice.reducer;
