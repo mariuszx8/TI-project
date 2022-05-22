@@ -25,6 +25,7 @@ export const OrderProcess = () => {
   const navigate = useNavigate();
 
   const [submittedStep3, setSubmittedStep3] = useState(false);
+  const [submittedStep5, setSubmittedStep5] = useState(false);
 
   const steps = [
     "Twoje mieszkanie",
@@ -40,7 +41,7 @@ export const OrderProcess = () => {
     <Step2 />,
     <Step3 setSubmitted={setSubmittedStep3} />,
     <Step4 />,
-    <Step5 />,
+    <Step5 setSubmitted={setSubmittedStep5} />,
     <Step6 />,
   ];
 
@@ -49,7 +50,17 @@ export const OrderProcess = () => {
   };
 
   const handleNextStep3 = () => {
-    if (submittedStep3) setActiveStep(activeStep + 1);
+    if (submittedStep3) {
+      handleNext();
+      setSubmittedStep3(false);
+    }
+  };
+
+  const handleNextStep5 = () => {
+    if (submittedStep5) {
+      handleNext();
+      setSubmittedStep5(false);
+    }
   };
 
   const handleBack = () => {
@@ -63,6 +74,10 @@ export const OrderProcess = () => {
   useEffect(() => {
     handleNextStep3();
   }, [submittedStep3]);
+
+  useEffect(() => {
+    handleNextStep5();
+  }, [submittedStep5]);
 
   const isDesktop = useMediaQuery("(min-width:768px)");
 
@@ -113,6 +128,15 @@ export const OrderProcess = () => {
                         variant="contained"
                         onClick={handleNextStep3}
                         form="address-form"
+                        type="submit"
+                      >
+                        Dalej
+                      </Button>
+                    ) : activeStep === 4 ? (
+                      <Button
+                        variant="contained"
+                        onClick={handleNextStep5}
+                        form="contact-form"
                         type="submit"
                       >
                         Dalej

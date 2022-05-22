@@ -3,8 +3,12 @@ import { TextArea } from "../../Inputs/TextArea/TextArea";
 import { TextInput } from "../../Inputs/TextInput/TextInput";
 import "./ContactForm.scss";
 import { ContactValidationSchema } from "./ContactValidationSchema";
+import { useDispatch } from "react-redux";
+import { saveData } from "../../../store/orderSlice";
 
-export const ContactForm = () => {
+export const ContactForm = ({ setSubmitted }) => {
+  const dispatch = useDispatch();
+
   const formikContact = useFormik({
     initialValues: {
       name: "", // imię
@@ -15,12 +19,13 @@ export const ContactForm = () => {
 
     validationSchema: ContactValidationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(saveData(values));
+      setSubmitted(true);
     },
   });
 
   return (
-    <form id="address-form" onSubmit={formikContact.handleSubmit}>
+    <form id="contact-form" onSubmit={formikContact.handleSubmit}>
       <div className="form-row">
         <div className="name-field">
           <TextInput
@@ -34,6 +39,17 @@ export const ContactForm = () => {
         </div>
       </div>
       <div className="form-row">
+        <div className="email-field">
+          <TextInput
+            name="email"
+            value={formikContact.values.email}
+            label="E-mail:"
+            handleChange={formikContact.handleChange}
+            touched={formikContact.touched.email}
+            errors={formikContact.errors.email}
+          />
+        </div>
+
         <div className="phone-field">
           <TextInput
             name="phone"
@@ -42,17 +58,6 @@ export const ContactForm = () => {
             handleChange={formikContact.handleChange}
             touched={formikContact.touched.phone}
             errors={formikContact.errors.phone}
-          />
-        </div>
-
-        <div className="email-field">
-          <TextInput
-            name="phone"
-            value={formikContact.values.email}
-            label="E-mail:"
-            handleChange={formikContact.handleChange}
-            touched={formikContact.touched.email}
-            errors={formikContact.errors.email}
           />
         </div>
       </div>
