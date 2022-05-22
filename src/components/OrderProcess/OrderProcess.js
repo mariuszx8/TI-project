@@ -13,6 +13,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Step1 } from "../OrderSteps/Step1/Step1";
 import { Step2 } from "../OrderSteps/Step2/Step2";
 import { Step3 } from "../OrderSteps/Step3/Step3";
+import { Step4 } from "../OrderSteps/Step4/Step4";
+import { Step5 } from "../OrderSteps/Step5/Step5";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
@@ -34,6 +36,8 @@ export const OrderProcess = () => {
     <Step1 initialRooms={rooms} />,
     <Step2 />,
     <Step3 />,
+    <Step4 />,
+    <Step5 />,
     "test",
   ];
 
