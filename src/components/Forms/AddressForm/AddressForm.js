@@ -3,8 +3,12 @@ import { useFormik } from "formik";
 import { TextInput } from "../../Inputs/TextInput/TextInput";
 import { AddressValidationSchema } from "./AddressValidationSchema";
 import { TextArea } from "../../Inputs/TextArea/TextArea";
+import { useDispatch } from "react-redux";
+import { saveData } from "../../../store/orderSlice";
 
-export const AddressForm = () => {
+export const AddressForm = ({ setSubmitted }) => {
+  const dispatch = useDispatch();
+
   const formikAddress = useFormik({
     initialValues: {
       address: "", // ulica
@@ -16,7 +20,8 @@ export const AddressForm = () => {
     },
     validationSchema: AddressValidationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(saveData(values));
+      setSubmitted(true);
     },
   });
 

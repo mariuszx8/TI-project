@@ -1,5 +1,5 @@
 import Paper from "@mui/material/Paper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Stepper from "@mui/material/Stepper";
 import MobileStepper from "@mui/material/MobileStepper";
 import Step from "@mui/material/Step";
@@ -24,7 +24,7 @@ export const OrderProcess = () => {
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
 
-  // Steps data
+  const [submittedStep3, setSubmittedStep3] = useState(false);
 
   const steps = [
     "Twoje mieszkanie",
@@ -38,7 +38,7 @@ export const OrderProcess = () => {
   const orderProcessSteps = [
     <Step1 initialRooms={rooms} />,
     <Step2 />,
-    <Step3 />,
+    <Step3 setSubmitted={setSubmittedStep3} />,
     <Step4 />,
     <Step5 />,
     <Step6 />,
@@ -48,6 +48,10 @@ export const OrderProcess = () => {
     setActiveStep(activeStep + 1);
   };
 
+  const handleNextStep3 = () => {
+    if (submittedStep3) setActiveStep(activeStep + 1);
+  };
+
   const handleBack = () => {
     if (activeStep === 0) {
       navigate("/");
@@ -55,6 +59,10 @@ export const OrderProcess = () => {
       setActiveStep(activeStep - 1);
     }
   };
+
+  useEffect(() => {
+    handleNextStep3();
+  }, [submittedStep3]);
 
   const isDesktop = useMediaQuery("(min-width:768px)");
 
@@ -103,7 +111,7 @@ export const OrderProcess = () => {
                     {activeStep === 2 ? (
                       <Button
                         variant="contained"
-                        onClick={handleNext}
+                        onClick={handleNextStep3}
                         form="address-form"
                         type="submit"
                       >
