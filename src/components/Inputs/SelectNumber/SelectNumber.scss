@@ -13,17 +13,22 @@
     @include no-select;
     @include flex-center;
     width: 25%;
+    height: 100%;
     cursor: pointer;
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: 700;
     color: $black;
 
     @media #{$laptop} {
-      font-size: 2.2vw;
+      font-size: 2.2rem;
     }
 
     @media #{$tabletXL} {
-      font-size: 2.4vw;
+      font-size: 2.3rem;
+    }
+
+    @media #{$tablet} {
+      font-size: 2.1rem;
     }
 
     @media #{$mobileXL} {
@@ -36,18 +41,24 @@
   }
 
   .value-container {
+    @include flex-center;
     width: 50%;
-    font-size: 1.3vw;
+    height: 100%;
+    font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
     color: $black;
 
     @media #{$laptop} {
-      font-size: 1.6vw;
+      font-size: 1.35rem;
     }
 
     @media #{$tabletXL} {
-      font-size: 1.9vw;
+      font-size: 1.25rem;
+    }
+
+    @media #{$tablet} {
+      font-size: 1.2rem;
     }
 
     @media #{$mobileXL} {

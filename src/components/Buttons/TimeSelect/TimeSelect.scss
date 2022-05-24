@@ -1,4 +1,5 @@
 @import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
 
 .time-select-btn {
   height: 45px;
@@ -11,6 +12,17 @@
   margin: 0.4rem;
   border-radius: 8px;
   cursor: pointer;
+
+  @media #{$maxTablet} {
+    height: 42px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  @media #{$maxMobileXL} {
+    height: 40px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 
   &.selected {
     background-color: $accent;

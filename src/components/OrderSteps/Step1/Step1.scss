@@ -1,4 +1,7 @@
 @import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/text.scss";
+@import "../../../assets/styles/mixins.scss";
+@import "../../../assets/styles/breakpoints.scss";
 
 .step1-container {
   height: 100%;
@@ -10,12 +13,26 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media #{$maxTablet} {
+    justify-content: space-evenly;
+  }
 }
 
 .type-select,
 .rooms-selects,
 .kitchen-select {
   height: 20%;
+
+  @media #{$maxTablet} {
+    height: 14%;
+  }
+}
+
+.rooms-selects {
+  @media #{$maxTablet} {
+    height: 35%;
+  }
 }
 
 .step1-description {
@@ -23,6 +40,11 @@
   font-size: 1.2rem;
   font-weight: 500;
   height: 10%;
+
+  @media #{$maxMobileXL} {
+    font-size: 1.1rem;
+  }
+
   p {
     margin: 0.3rem;
   }
@@ -37,15 +59,45 @@
   font-weight: 700;
   text-align: center;
   text-transform: none;
+
+  @media #{$laptop} {
+    font-size: 1.35rem;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 1.3rem;
+  }
+
+  @media #{$maxTablet} {
+    font-size: 1.2rem;
+  }
+
+  @media #{$maxMobileXL} {
+    font-size: 1.15rem;
+  }
 }
 
 .rooms-selects {
   display: flex;
   justify-content: space-between;
 
+  @media #{$maxTablet} {
+    flex-direction: column;
+    align-items: center;
+  }
+
   & > div {
     width: 45%;
     height: 100%;
+
+    @media #{$maxTablet} {
+      width: 60%;
+      height: 40%;
+    }
+
+    @media #{$maxMobileXL} {
+      width: 98%;
+    }
   }
 }
 
@@ -57,6 +109,14 @@
   & > div {
     width: 50%;
     height: 100%;
+
+    @media #{$maxTablet} {
+      width: 70%;
+    }
+
+    @media #{$maxMobileXL} {
+      width: 98%;
+    }
   }
 }
 
@@ -64,5 +124,13 @@
   & > div {
     width: 70%;
     height: 100%;
+
+    @media #{$maxTablet} {
+      width: 90%;
+    }
+
+    @media #{$maxMobileXL} {
+      width: 98%;
+    }
   }
 }

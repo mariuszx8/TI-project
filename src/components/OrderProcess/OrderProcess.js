@@ -121,7 +121,7 @@ export const OrderProcess = () => {
                     }}
                   >
                     <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
-                      {activeStep === 0 ? "Anuluj" : "Cofnij"}
+                      {activeStep === 0 ? "Wróć do strony głównej" : "Cofnij"}
                     </Button>
                     {activeStep === 2 ? (
                       <Button
@@ -167,7 +167,9 @@ export const OrderProcess = () => {
           >
             <div className="mobile-step">
               <div className="mobile-step-header">{steps[activeStep]}</div>
-              <div className="mobile-step-content">Content</div>
+              <div className="mobile-step-content">
+                {orderProcessSteps[activeStep]}
+              </div>
             </div>
 
             <MobileStepper
@@ -175,17 +177,37 @@ export const OrderProcess = () => {
               steps={steps.length}
               position="static"
               activeStep={activeStep}
-              nextButton={
-                <Button size="medium" onClick={handleNext}>
-                  {activeStep === steps.length - 1
-                    ? "Złóż zamówienie"
-                    : "Dalej"}
-                </Button>
-              }
               backButton={
                 <Button color="inherit" size="medium" onClick={handleBack}>
                   {activeStep === 0 ? "Anuluj" : "Cofnij"}
                 </Button>
+              }
+              nextButton={
+                activeStep === 2 ? (
+                  <Button
+                    size="medium"
+                    onClick={handleNextStep3}
+                    form="address-form"
+                    type="submit"
+                  >
+                    Dalej
+                  </Button>
+                ) : activeStep === 4 ? (
+                  <Button
+                    size="medium"
+                    onClick={handleNextStep5}
+                    form="contact-form"
+                    type="submit"
+                  >
+                    Dalej
+                  </Button>
+                ) : (
+                  <Button size="medium" onClick={handleNext} type="button">
+                    {activeStep === steps.length - 1
+                      ? "Złóż zamówienie"
+                      : "Dalej"}
+                  </Button>
+                )
               }
             />
           </Stack>
