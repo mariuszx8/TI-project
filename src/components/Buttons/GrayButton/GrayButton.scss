@@ -1,25 +1,22 @@
 @import "../../../assets/styles/colors.scss";
 @import "../../../assets/styles/text.scss";
+@import "../../../assets/styles/breakpoints.scss";
 
 button.gray-button {
   background-color: $gray;
-  padding: 0.7vw 0.9vw;
+  padding: 0.9rem 1.1rem;
   @include grayButtonText;
 
   @media #{$tabletXL} {
-    padding: 0.9vw 1.1vw;
+    padding: 0.8rem 1.2rem;
   }
 
-  @media #{$tablet} {
+  @media #{$maxTablet} {
     padding: 0.7rem 1.3rem;
   }
 
-  @media #{$mobileXL} {
-    padding: 0.6rem 1.2rem;
-  }
-
-  @media #{$mobile} {
-    padding: 0.5rem 1.1rem;
+  @media #{$maxMobileXL} {
+    padding: 0.7rem 1.1rem;
   }
 
   &:hover {

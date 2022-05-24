@@ -6,27 +6,20 @@ header {
   display: flex;
   align-items: center;
   background-color: $background;
-  padding: 0 4vw;
+  padding: 0 4rem;
   height: 10%;
 
   @media #{$laptop} {
-    padding: 0 5vw;
+    padding: 0 5rem;
     height: 9%;
-  }
 
-  @media #{$tabletXL} {
-    padding: 0 5vw;
-    height: 8%;
-  }
+    @media #{$maxTablet} {
+      height: 7%;
+    }
 
-  @media #{$tablet} {
-    padding: 0 5vw;
-    height: 7%;
-  }
-
-  @media #{$mobile} , #{$mobileXL} {
-    padding: 0 5vw;
-    height: 8%;
+    @media #{$maxMobileXL} {
+      height: 6%;
+    }
   }
 }
 
@@ -37,27 +30,15 @@ header {
   }
 
   svg {
-    height: 3.5vw;
+    height: 4rem;
     width: initial;
 
-    @media #{$laptop} {
-      height: 4vw;
+    @media #{$maxTablet} {
+      height: 60px;
     }
 
-    @media #{$tabletXL} {
-      height: 5vw;
-    }
-
-    @media #{$tablet} {
-      height: 50px;
-    }
-
-    @media #{$mobileXL} {
-      height: 45px;
-    }
-
-    @media #{$mobile} {
-      height: 40px;
+    @media #{$maxMobileXL} {
+      height: 58px;
     }
   }
 }

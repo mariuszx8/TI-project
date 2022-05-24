@@ -15,16 +15,12 @@
     height: 91%;
   }
 
-  @media #{$tabletXL} {
-    height: 92%;
-  }
-
-  @media #{$tablet} {
+  @media #{$maxTablet} {
     height: 93%;
   }
 
-  @media #{$mobile}, #{$mobileXL} {
-    height: 92%;
+  @media #{$maxMobileXL} {
+    height: 94%;
   }
 }
 
@@ -39,25 +35,28 @@
   background-color: rgba($color: $background, $alpha: 0.3);
   backdrop-filter: blur(15px);
   border-radius: 16px;
-  padding: 1.6vw 3.2vw;
+  padding: 2rem 3.5rem;
 
   @media #{$laptop} {
-    padding: 2.4vw 3.6vw;
+    padding: 2.4rem 3.6rem;
   }
 
   @media #{$tabletXL} {
-    padding: 2.6vw 3.8vw;
+    padding: 2.2rem 2.5rem;
   }
 
-  @media #{$tablet} {
-    width: 80%;
-    padding: 3rem 0;
+  @media #{$maxTablet} {
+    width: 94%;
+    padding: 2rem 1rem;
   }
 
-  @media #{$mobile}, #{$mobileXL} {
-    width: 92%;
-    height: 70%;
-    padding: 2rem 1.2rem;
+  @media #{$maxMobileXL} {
+    width: 96%;
+    padding: 2.2rem 1.1rem;
+  }
+
+  @media #{$mobile} {
+    width: 100%;
   }
 }
 

@@ -3,44 +3,39 @@
 
 .form-container {
   @include flex-center;
-  height: 5vw;
+  height: 5.8rem;
 
-  @media #{$tabletXL} {
-    height: 6vw;
-  }
-
-  @media #{$tablet} {
-    height: 50%;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  @media #{$mobileXL} {
-    margin-top: 10%;
-    height: 40%;
+  @media #{$maxTablet} {
+    margin-top: 1rem;
+    height: 8rem;
     flex-direction: column;
     justify-content: space-between;
   }
 
   @media #{$mobile} {
-    margin-top: 20%;
-    height: 40%;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-top: 2rem;
   }
 
   & > div {
     width: 45%;
     height: 100%;
 
-    @media #{$tablet} {
-      height: 50%;
-      width: 45%;
+    @media #{$tabletXL} {
+      height: 90%;
     }
 
-    @media #{$mobile}, #{$mobileXL} {
+    @media #{$maxTablet} {
+      width: 55%;
+      height: 50%;
+    }
+
+    @media #{$maxMobileXL} {
       height: 45%;
-      width: 100%;
+      width: 80%;
+    }
+
+    @media #{$mobile} {
+      width: 97%;
     }
   }
 }

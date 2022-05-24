@@ -4,70 +4,58 @@
 @mixin grayButtonText {
   font-weight: 500;
   color: $black;
-  font-size: 1vw;
-
-  @media #{$laptop} {
-    font-size: 1.4vw;
-  }
+  font-size: 1.1rem;
 
   @media #{$tabletXL} {
-    font-size: 1.6vw;
-  }
-
-  @media #{$tablet} {
     font-size: 1.2rem;
   }
 
-  @media #{$mobileXL} {
-    font-size: 1rem;
+  @media #{$maxTablet} {
+    font-size: 1.2rem;
   }
 
-  @media #{$mobile} {
-    font-size: 0.9rem;
+  @media #{$maxMobileXL} {
+    font-size: 1.1rem;
   }
 }
 
 @mixin actionButtonText {
   font-weight: 700;
   color: $accent-text;
-  font-size: 1.4vw;
+  font-size: 1.4rem;
 
   @media #{$laptop} {
-    font-size: 1.7vw;
+    font-size: 1.5rem;
   }
 
   @media #{$tabletXL} {
-    font-size: 1.9vw;
+    font-size: 1.4rem;
   }
 
-  @media #{$mobileXL} {
+  @media #{$maxTablet} {
     font-size: 1.3rem;
-  }
-
-  @media #{$mobile} {
-    font-size: 1.2rem;
   }
 }
 
 @mixin h1Style {
   font-weight: 700;
   color: $black;
-  font-size: 4.2vw;
+  font-size: 4.2rem;
 
   @media #{$laptop} {
-    font-size: 5vw;
+    font-size: 4.1rem;
   }
 
   @media #{$tabletXL} {
-    font-size: 5.7vw;
+    font-size: 3.1rem;
   }
 
-  @media #{$mobileXL} {
+  @media #{$maxTablet} {
+    font-size: 2.8rem;
+  }
+
+  @media #{$maxMobileXL} {
     font-size: 2.4rem;
-  }
-
-  @media #{$mobile} {
-    font-size: 2.2rem;
   }
 }
 
@@ -99,22 +87,22 @@ h1 {
 
 @mixin subtitleStyle {
   color: $paragraph;
-  font-size: 1.7vw;
+  font-size: 1.7rem;
 
   @media #{$laptop} {
-    font-size: 2.2vw;
+    font-size: 1.6rem;
   }
 
   @media #{$tabletXL} {
-    font-size: 2.5vw;
+    font-size: 1.4rem;
   }
 
-  @media #{$mobileXL} {
+  @media #{$maxTablet} {
     font-size: 1.3rem;
   }
 
-  @media #{$mobile} {
-    font-size: 1.1rem;
+  @media #{$maxMobileXL} {
+    font-size: 1.15rem;
   }
 }
 
