@@ -1,4 +1,5 @@
 @import "../../../assets/styles/colors.scss";
+@import "../../../assets/styles/breakpoints.scss";
 
 .step6-container {
   height: 100%;
@@ -9,15 +10,75 @@
   color: $paragraph;
   font-size: 1.2rem;
   font-weight: 500;
-  height: 10%;
+  height: 8%;
   p {
     margin: 0.3rem;
   }
 }
 
 .step6-content {
-  height: 90%;
+  height: 92%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  .section-title {
+    color: $paragraph;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 2rem;
+  }
+}
+
+.payment-select {
+  margin-top: 2rem;
+  height: 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media #{$maxTablet} {
+    height: 14%;
+  }
+
+  & > div {
+    width: 60%;
+    height: 100%;
+
+    @media #{$maxTablet} {
+      width: 70%;
+    }
+
+    @media #{$maxMobileXL} {
+      width: 98%;
+    }
+  }
+}
+
+.type-select-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: none;
+
+  @media #{$laptop} {
+    font-size: 1.35rem;
+  }
+
+  @media #{$tabletXL} {
+    font-size: 1.3rem;
+  }
+
+  @media #{$maxTablet} {
+    font-size: 1.2rem;
+  }
+
+  @media #{$maxMobileXL} {
+    font-size: 1.15rem;
+  }
 }

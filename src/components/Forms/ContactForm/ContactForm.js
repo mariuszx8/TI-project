@@ -14,7 +14,7 @@ export const ContactForm = ({ setSubmitted }) => {
       name: "", // imię
       phone: "", // telefon
       email: "", // email
-      extra: "", // dodatkowe informacje
+      contactExtra: "", // dodatkowe informacje
     },
 
     validationSchema: ContactValidationSchema,
@@ -64,12 +64,12 @@ export const ContactForm = ({ setSubmitted }) => {
       <div className="form-row">
         <div className="extra-field">
           <TextArea
-            name="extra"
-            value={formikContact.values.extra}
+            name="contactExtra"
+            value={formikContact.values.contactExtra}
             label="Dodatkowe informacje do zamówienia"
             handleChange={formikContact.handleChange}
-            touched={formikContact.touched.extra}
-            errors={formikContact.errors.extra}
+            touched={formikContact.touched.contactExtra}
+            errors={formikContact.errors.contactExtra}
           />
         </div>
       </div>

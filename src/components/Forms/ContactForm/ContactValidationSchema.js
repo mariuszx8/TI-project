@@ -9,5 +9,5 @@ export const ContactValidationSchema = Yup.object({
   email: Yup.string()
     .email("Niepooprawny adres email")
     .required("Pole wymagane"),
-  extra: Yup.string(),
+  contactExtra: Yup.string(),
 });

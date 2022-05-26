@@ -10,6 +10,8 @@ import { Box } from "@mui/system";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectOrderData } from "../../store/orderSlice";
 import { Step1 } from "../OrderSteps/Step1/Step1";
 import { Step2 } from "../OrderSteps/Step2/Step2";
 import { Step3 } from "../OrderSteps/Step3/Step3";
@@ -26,6 +28,8 @@ export const OrderProcess = () => {
 
   const [submittedStep3, setSubmittedStep3] = useState(false);
   const [submittedStep5, setSubmittedStep5] = useState(false);
+
+  const formData = useSelector(selectOrderData);
 
   const steps = [
     "Twoje mieszkanie",
@@ -46,6 +50,9 @@ export const OrderProcess = () => {
   ];
 
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      console.log(formData);
+    }
     setActiveStep(activeStep + 1);
   };
 
