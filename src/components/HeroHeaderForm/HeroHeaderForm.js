@@ -8,6 +8,14 @@ export const HeroHeaderForm = () => {
   const [roomsCount, setRoomsCount] = useState(1);
   const navigate = useNavigate();
 
+  const incrementRooms = () => {
+    if (roomsCount < 20) setRoomsCount(roomsCount + 1);
+  };
+
+  const decrementRooms = () => {
+    if (roomsCount > 1) setRoomsCount(roomsCount - 1);
+  };
+
   const redirectToOrderForm = () => {
     navigate("/order", { state: { rooms: roomsCount } });
   };
@@ -18,7 +26,8 @@ export const HeroHeaderForm = () => {
         <SelectNumber
           label="Liczba pokoi:"
           value={roomsCount}
-          setValue={setRoomsCount}
+          incrementValue={incrementRooms}
+          decrementValue={decrementRooms}
         />
       </div>
       <div>
