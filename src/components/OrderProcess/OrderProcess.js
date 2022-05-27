@@ -18,6 +18,7 @@ import { Step3 } from "../OrderSteps/Step3/Step3";
 import { Step4 } from "../OrderSteps/Step4/Step4";
 import { Step5 } from "../OrderSteps/Step5/Step5";
 import { Step6 } from "../OrderSteps/Step6/Step6";
+import { FinishedStep } from "../OrderSteps/FinishedStep/FinishedStep";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
@@ -110,7 +111,7 @@ export const OrderProcess = () => {
             </div>
             <div className="steps-container">
               {activeStep === steps.length ? (
-                "Order finished"
+                <FinishedStep />
               ) : (
                 <Stack
                   direction="column"
