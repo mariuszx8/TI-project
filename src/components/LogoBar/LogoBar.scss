@@ -9,6 +9,12 @@ header {
   background-color: $background;
   padding: 0 4vw;
   height: 10%;
+
+  &.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+  }
 }
 
 svg {

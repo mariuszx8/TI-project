@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import { Logo } from "../../assets/svg/Logo";
 import "./LogoBar.scss";
 
-export const LogoBar = ({ title }) => {
+export const LogoBar = ({ title, className }) => {
   return (
-    <header>
+    <header className={`${className ? className : ""}`}>
       <Link to="/">
         <Logo />
       </Link>

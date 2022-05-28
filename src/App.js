@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { OrderPage } from "./pages/OrderPage/OrderPage";
+import { AdminPage } from "./pages/AdminPage/AdminPage";
 
 function App() {
   const theme = createTheme({
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/order" element={<OrderPage />} />
+          <Route exact path="/admin" element={<AdminPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
