@@ -15,20 +15,45 @@
   font-size: 16px;
   border: 1px solid $gray;
 
+  @media #{$maxTablet} {
+    width: 85%;
+    font-size: 18px;
+  }
+
+  @media #{$maxMobileXL} {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .summary-label,
+  .summary-value {
+    padding: 11px 11px;
+
+    @media #{$maxTablet} {
+      padding: 15px 12px;
+    }
+  }
+
   .summary-label {
     font-weight: 600;
     width: 32%;
     background-color: $gray;
-    padding: 8px 11px;
     display: flex;
     align-items: center;
+
+    @media #{$maxMobileXL} {
+      width: 28%;
+    }
   }
 
   .summary-value {
     width: 65%;
-    padding: 8px 11px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media #{$maxMobileXL} {
+      width: 69%;
+    }
   }
 }

@@ -17,12 +17,36 @@
       color: $black;
       font-size: 2.8rem;
       margin-top: 0.5rem;
+
+      @media #{$maxTablet} {
+        font-size: 2.2rem;
+      }
+
+      @media #{$maxMobileXL} {
+        font-size: 1.6rem;
+      }
+
+      @media #{$mobile} {
+        font-size: 1.4rem;
+      }
     }
 
     .subtitle {
       font-weight: 400;
       color: $black;
       font-size: 1.6rem;
+
+      @media #{$maxTablet} {
+        font-size: 1.4rem;
+      }
+
+      @media #{$maxMobileXL} {
+        font-size: 1rem;
+      }
+
+      @media #{$mobile} {
+        font-size: 0.9rem;
+      }
     }
 
     .btn-container {

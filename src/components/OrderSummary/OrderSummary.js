@@ -4,7 +4,7 @@ export const OrderSummary = ({ orderData }) => {
   const rooms = orderData.roomsCount > 1 ? "pokoje" : "pokój";
   const bathrooms = orderData.bathroomsCount > 1 ? "łazienki" : "łazienka";
   const address1 = `${orderData.address} ${orderData.houseNumber}${
-    orderData.apartment != "" ? `/${orderData.apartment}` : ""
+    orderData.apartment !== "" ? `/${orderData.apartment}` : ""
   }`;
   const address2 = `${orderData.zipCode} ${orderData.city}`;
 

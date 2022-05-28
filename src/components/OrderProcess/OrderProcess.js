@@ -1,5 +1,5 @@
 import Paper from "@mui/material/Paper";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Stepper from "@mui/material/Stepper";
 import MobileStepper from "@mui/material/MobileStepper";
 import Step from "@mui/material/Step";
@@ -32,14 +32,17 @@ export const OrderProcess = () => {
 
   const formData = useSelector(selectOrderData);
 
-  const steps = [
-    "Twoje mieszkanie",
-    "Termin",
-    "Adres",
-    "Usługi",
-    "Dane kontaktowe",
-    "Płatność",
-  ];
+  const steps = useMemo(
+    () => [
+      "Twoje mieszkanie",
+      "Termin",
+      "Adres",
+      "Usługi",
+      "Dane kontaktowe",
+      "Płatność",
+    ],
+    []
+  );
 
   const orderProcessSteps = [
     <Step1 initialRooms={rooms} />,
@@ -50,26 +53,27 @@ export const OrderProcess = () => {
     <Step6 />,
   ];
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (activeStep === steps.length - 1) {
       console.log(formData);
     }
-    setActiveStep(activeStep + 1);
-  };
 
-  const handleNextStep3 = () => {
+    setActiveStep(activeStep + 1);
+  }, [activeStep, formData, steps]);
+
+  const handleNextStep3 = useCallback(() => {
     if (submittedStep3) {
       handleNext();
       setSubmittedStep3(false);
     }
-  };
+  }, [submittedStep3, handleNext]);
 
-  const handleNextStep5 = () => {
+  const handleNextStep5 = useCallback(() => {
     if (submittedStep5) {
       handleNext();
       setSubmittedStep5(false);
     }
-  };
+  }, [submittedStep5, handleNext]);
 
   const handleBack = () => {
     if (activeStep === 0) {
@@ -81,11 +85,11 @@ export const OrderProcess = () => {
 
   useEffect(() => {
     handleNextStep3();
-  }, [submittedStep3]);
+  }, [handleNextStep3]);
 
   useEffect(() => {
     handleNextStep5();
-  }, [submittedStep5]);
+  }, [handleNextStep5]);
 
   const isDesktop = useMediaQuery("(min-width:768px)");
 
@@ -173,51 +177,57 @@ export const OrderProcess = () => {
             spacing={2}
             sx={{ height: "100%" }}
           >
-            <div className="mobile-step">
-              <div className="mobile-step-header">{steps[activeStep]}</div>
-              <div className="mobile-step-content">
-                {orderProcessSteps[activeStep]}
-              </div>
-            </div>
+            {activeStep === steps.length ? (
+              <FinishedStep />
+            ) : (
+              <>
+                <div className="mobile-step">
+                  <div className="mobile-step-header">{steps[activeStep]}</div>
+                  <div className="mobile-step-content">
+                    {orderProcessSteps[activeStep]}
+                  </div>
+                </div>
 
-            <MobileStepper
-              variant="text"
-              steps={steps.length}
-              position="static"
-              activeStep={activeStep}
-              backButton={
-                <Button color="inherit" size="medium" onClick={handleBack}>
-                  {activeStep === 0 ? "Anuluj" : "Cofnij"}
-                </Button>
-              }
-              nextButton={
-                activeStep === 2 ? (
-                  <Button
-                    size="medium"
-                    onClick={handleNextStep3}
-                    form="address-form"
-                    type="submit"
-                  >
-                    Dalej
-                  </Button>
-                ) : activeStep === 4 ? (
-                  <Button
-                    size="medium"
-                    onClick={handleNextStep5}
-                    form="contact-form"
-                    type="submit"
-                  >
-                    Dalej
-                  </Button>
-                ) : (
-                  <Button size="medium" onClick={handleNext} type="button">
-                    {activeStep === steps.length - 1
-                      ? "Złóż zamówienie"
-                      : "Dalej"}
-                  </Button>
-                )
-              }
-            />
+                <MobileStepper
+                  variant="text"
+                  steps={steps.length}
+                  position="static"
+                  activeStep={activeStep}
+                  backButton={
+                    <Button color="inherit" size="medium" onClick={handleBack}>
+                      {activeStep === 0 ? "Anuluj" : "Cofnij"}
+                    </Button>
+                  }
+                  nextButton={
+                    activeStep === 2 ? (
+                      <Button
+                        size="medium"
+                        onClick={handleNextStep3}
+                        form="address-form"
+                        type="submit"
+                      >
+                        Dalej
+                      </Button>
+                    ) : activeStep === 4 ? (
+                      <Button
+                        size="medium"
+                        onClick={handleNextStep5}
+                        form="contact-form"
+                        type="submit"
+                      >
+                        Dalej
+                      </Button>
+                    ) : (
+                      <Button size="medium" onClick={handleNext} type="button">
+                        {activeStep === steps.length - 1
+                          ? "Złóż zamówienie"
+                          : "Dalej"}
+                      </Button>
+                    )
+                  }
+                />
+              </>
+            )}
           </Stack>
         )}
       </Paper>

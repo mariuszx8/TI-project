@@ -23,7 +23,7 @@ export const Step6 = () => {
       payment: payment,
     };
     dispatch(saveData(paymentMethod));
-  }, [payment]);
+  }, [payment, dispatch]);
 
   return (
     <section className="step6-container">

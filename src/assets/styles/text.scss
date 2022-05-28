@@ -4,7 +4,7 @@
 @mixin grayButtonText {
   font-weight: 500;
   color: $black;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 
   @media #{$tabletXL} {
     font-size: 1.2rem;
@@ -22,7 +22,7 @@
 @mixin actionButtonText {
   font-weight: 700;
   color: $accent-text;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 
   @media #{$laptop} {
     font-size: 1.5rem;

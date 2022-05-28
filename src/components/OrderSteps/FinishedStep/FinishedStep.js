@@ -8,7 +8,10 @@ export const FinishedStep = () => {
   return (
     <div className="finished-container">
       <div className="finished-content">
-        <CheckCircleIcon color="primary" sx={{ fontSize: 110 }} />
+        <CheckCircleIcon
+          color="primary"
+          sx={{ fontSize: { xs: 90, sm: 110 } }}
+        />
         <div className="title">Zamówienie zostało złożone</div>
         <div className="subtitle">
           Dziękujemy za skorzystanie z naszych usług

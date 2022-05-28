@@ -1,5 +1,5 @@
 import "./Step2.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -20,14 +20,18 @@ import { saveData } from "../../../store/orderSlice";
 export const Step2 = () => {
   const dispatch = useDispatch();
 
-  const now = new Date();
+  const now = useMemo(() => new Date(), []);
+
   const maxDate = new Date(
     now.getFullYear(),
     now.getMonth() + 2,
     now.getDate()
   );
-  const firstDate =
-    now.getDate() === 0 ? startOfTomorrow(now) : startOfDay(now);
+
+  const firstDate = useMemo(
+    () => (now.getDate() === 0 ? startOfTomorrow(now) : startOfDay(now)),
+    [now]
+  );
 
   const [date, setDate] = useState(now);
   const [time, setTime] = useState(firstDate);
@@ -51,17 +55,19 @@ export const Step2 = () => {
     setTime(value);
   };
 
-  const getTimeValue = () => {
-    return isEqual(time, firstDate) ? "Dowolna godzina" : format(time, "HH:mm");
-  };
-
   useEffect(() => {
+    const getTimeValue = () => {
+      return isEqual(time, firstDate)
+        ? "Dowolna godzina"
+        : format(time, "HH:mm");
+    };
+
     const step2 = {
       date: format(date, "dd.MM.yyyy"),
       time: getTimeValue(),
     };
     dispatch(saveData(step2));
-  }, [date, time, dispatch]);
+  }, [date, time, dispatch, firstDate]);
 
   return (
     <section className="step2-container">
@@ -69,7 +75,7 @@ export const Step2 = () => {
         <p>Wybierz dogodny termin i odpowiadającą godzinę.</p>
       </div>
       <div className="step2-content">
-        <LocalizationProvider dateAdapter={AdapterDateFns} locale={pl}>
+        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
             openTo="day"
