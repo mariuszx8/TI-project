@@ -1,5 +1,6 @@
 import { Paper } from "@mui/material";
 import { LoginForm } from "../Forms/LoginForm/LoginForm";
+import "./LoginContainer.scss";
 
 export const LoginContainer = () => {
   return (
@@ -9,6 +10,7 @@ export const LoginContainer = () => {
         elevation={0}
       >
         <div className="paper-content">
+          <div className="title">Logowanie</div>
           <LoginForm />
         </div>
       </Paper>

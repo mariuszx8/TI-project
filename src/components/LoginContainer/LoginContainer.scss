@@ -5,17 +5,41 @@
 
 .login-container {
   max-width: 1000px;
-  width: 100%;
-  height: 80%;
+  width: 30%;
+  height: 50%;
 
-  @media #{$mobile},  #{$mobileXL}, #{$tablet} {
-    height: 100%;
+  @media #{$laptop} {
+    width: 35%;
+  }
+
+  @media #{$tabletXL} {
+    width: 38%;
+  }
+
+  @media #{$maxTablet} {
+    height: 55%;
+    width: 55%;
+  }
+
+  @media #{$maxMobileXL} {
+    height: 55%;
+    width: 85%;
   }
 
   .paper-content {
-    padding: 3rem 2rem;
+    padding: 2rem 1.5rem;
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+
+    @media #{$maxMobileXL} {
+      padding: 1rem;
+    }
+
+    .title {
+      text-align: center;
+      @include pageTitleStyle;
+    }
   }
 }
