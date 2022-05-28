@@ -8,9 +8,9 @@
 
 .step5-description {
   color: $paragraph;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 500;
-  height: 10%;
+  height: 8%;
 
   @media #{$maxTablet} {
     height: 5%;
@@ -26,7 +26,7 @@
 }
 
 .step5-content {
-  height: 90%;
+  height: 92%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

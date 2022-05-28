@@ -20,7 +20,7 @@ export const TextArea = ({
         type="text"
         value={value}
         onChange={handleChange}
-        rows="3"
+        rows="2"
         maxLength="250"
       />
       {touched && errors ? <div className="input-error">{errors}</div> : null}

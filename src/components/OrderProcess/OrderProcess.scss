@@ -6,23 +6,23 @@
 .process-container {
   max-width: 1000px;
   width: 100%;
-  height: 80%;
+  height: 85%;
 
   @media #{$mobile},  #{$mobileXL}, #{$tablet} {
     height: 100%;
   }
-}
 
-.paper-content {
-  padding: 3rem 2rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  .paper-content {
+    padding: 2rem 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .steps-container {
   height: 100%;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 }
 
 .mobile-step {

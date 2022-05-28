@@ -120,7 +120,6 @@ export const OrderProcess = () => {
                 <Stack
                   direction="column"
                   justifyContent="space-between"
-                  spacing={2}
                   sx={{ height: "100%" }}
                 >
                   {orderProcessSteps[activeStep]}
@@ -129,7 +128,7 @@ export const OrderProcess = () => {
                       display: "flex",
                       flexDirection: "row",
                       justifyContent: "space-between",
-                      pt: 2,
+                      pt: 1,
                     }}
                   >
                     <Button color="inherit" onClick={handleBack} sx={{ mr: 1 }}>
