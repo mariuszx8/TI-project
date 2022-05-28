@@ -1,0 +1,42 @@
+@import "../../assets/styles/colors.scss";
+@import "../../assets/styles/breakpoints.scss";
+@import "../../assets/styles/mixins.scss";
+
+.service-tile {
+  background-color: $gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: solid 3px transparent;
+  @include no-select;
+  max-width: 200px;
+  width: 200px;
+  height: 110px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.selected {
+    border-color: $accent;
+  }
+
+  .service-name {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+
+  .service-price {
+    font-size: 1.1rem;
+    background-color: $accent;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+}
