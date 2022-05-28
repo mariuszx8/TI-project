@@ -7,6 +7,7 @@ export const TextInput = ({
   handleChange,
   touched,
   errors,
+  type,
 }) => {
   return (
     <div className="input-text">
@@ -17,7 +18,7 @@ export const TextInput = ({
         className="form-input"
         id={name}
         name={name}
-        type="text"
+        type={type ? type : "text"}
         value={value}
         onChange={handleChange}
       />

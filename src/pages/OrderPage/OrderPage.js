@@ -5,7 +5,7 @@ import "./OrderPage.scss";
 export const OrderPage = () => {
   return (
     <section className="orderpage-container">
-      <LogoBar />
+      <LogoBar title="Nowe zamówienie" />
       <section className="content-container">
         <OrderProcess />
       </section>
