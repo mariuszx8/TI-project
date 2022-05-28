@@ -3,8 +3,23 @@ import { useFormik } from "formik";
 import { TextInput } from "../../Inputs/TextInput/TextInput";
 import "./LoginForm.scss";
 import { LoginValidationSchema } from "./LoginValidationSchema";
+import { auth, logInWithEmailAndPassword } from "../../../firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
+  const [user, loading] = useAuthState(auth);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) navigate("/admin");
+  }, [user, loading, navigate]);
+
   const formikLogin = useFormik({
     initialValues: {
       email: "",
@@ -13,7 +28,7 @@ export const LoginForm = () => {
 
     validationSchema: LoginValidationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      logInWithEmailAndPassword(values.email, values.password);
     },
   });
 
