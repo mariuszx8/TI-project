@@ -75,7 +75,7 @@ export const Step2 = () => {
         <p>Wybierz dogodny termin i odpowiadającą godzinę.</p>
       </div>
       <div className="step2-content">
-        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={pl}>
+        <LocalizationProvider dateAdapter={AdapterDateFns} locale={pl}>
           <StaticDatePicker
             displayStaticWrapperAs="desktop"
             openTo="day"

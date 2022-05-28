@@ -19,6 +19,9 @@ import { Step4 } from "../OrderSteps/Step4/Step4";
 import { Step5 } from "../OrderSteps/Step5/Step5";
 import { Step6 } from "../OrderSteps/Step6/Step6";
 import { FinishedStep } from "../OrderSteps/FinishedStep/FinishedStep";
+import { collection, addDoc } from "@firebase/firestore";
+import { db } from "../../firebase-config";
+import { format } from "date-fns";
 
 export const OrderProcess = () => {
   const { state } = useLocation();
@@ -55,9 +58,18 @@ export const OrderProcess = () => {
 
   const handleNext = useCallback(() => {
     if (activeStep === steps.length - 1) {
-      console.log(formData);
-    }
+      const dataCollectionRef = collection(db, "orders");
+      const newOrder = {
+        created: format(new Date(), "dd.MM.yyyy HH:mm"),
+        status: "PENDING",
+        ...formData,
+      };
 
+      const saveOrder = async () => {
+        await addDoc(dataCollectionRef, newOrder);
+      };
+      saveOrder();
+    }
     setActiveStep(activeStep + 1);
   }, [activeStep, formData, steps]);
 
