@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### `npm start`
 
-Runs the node server script, responsible for managing page requests\
+Runs the node server script, responsible for managing page requests.\
 
 ### `npm run build`
 
