@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/TI-project/static/css/main.8d196f3c.css",
+    "main.js": "/TI-project/static/js/main.e224ef82.js",
+    "static/media/room-background.jpg": "/TI-project/static/media/room-background.ae381ac5d8bd287cbfc2.jpg",
+    "index.html": "/TI-project/index.html",
+    "main.8d196f3c.css.map": "/TI-project/static/css/main.8d196f3c.css.map",
+    "main.e224ef82.js.map": "/TI-project/static/js/main.e224ef82.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d196f3c.css",
+    "static/js/main.e224ef82.js"
+  ]
+}
