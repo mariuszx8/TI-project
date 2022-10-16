@@ -8,40 +8,46 @@ export const OrderSummary = ({ orderData }) => {
   }`;
   const address2 = `${orderData.zipCode} ${orderData.city}`;
 
+  const summaryRows = [
+    {
+      label: "Lokal",
+      value: `${orderData.type}, ${orderData.roomsCount} ${rooms}, ${orderData.bathroomsCount} ${bathrooms}, ${orderData.kitchen}`,
+    },
+    {
+      label: "Termin sprzątania",
+      value: orderData.date,
+    },
+    {
+      label: "Godzina",
+      value: orderData.time,
+    },
+    {
+      label: "Adres",
+      value: [address1, address2],
+    },
+    {
+      label: "Kontakt",
+      value: [orderData.name, orderData.phone, orderData.email],
+    },
+  ];
+
   return (
     <div className="summary-container">
-      <div className="summary-row">
-        <div className="summary-label">Lokal:</div>
-        <div className="summary-value">
-          {`${orderData.type}, ${orderData.roomsCount} ${rooms}, ${orderData.bathroomsCount} ${bathrooms}, ${orderData.kitchen}`}
+      {summaryRows.map((row, key) => (
+        <div className="summary-row" key={key}>
+          <div className="summary-label">{row.label}:</div>
+          {Array.isArray(row.value) ? (
+            <div className="summary-value">
+              {row.value.map((val, id) => (
+                <div key={id}>{val}</div>
+              ))}
+            </div>
+          ) : (
+            <div className="summary-value">{row.value}</div>
+          )}
         </div>
-      </div>
+      ))}
 
-      <div className="summary-row">
-        <div className="summary-label">Termin sprzątania:</div>
-        <div className="summary-value">{orderData.date}</div>
-      </div>
-      <div className="summary-row">
-        <div className="summary-label">Godzina:</div>
-        <div className="summary-value">{orderData.time}</div>
-      </div>
-
-      <div className="summary-row">
-        <div className="summary-label">Adres:</div>
-        <div className="summary-value">
-          <div>{address1}</div>
-          <div>{address2}</div>
-        </div>
-      </div>
-
-      <div className="summary-row">
-        <div className="summary-label">Kontakt:</div>
-        <div className="summary-value">
-          <div>{orderData.name}</div>
-          <div>{orderData.phone}</div>
-          <div>{orderData.email}</div>
-        </div>
-      </div>
       {(orderData.extra || orderData.contactExtra) && (
         <div className="summary-row">
           <div className="summary-label">Dodatkowe informacje:</div>

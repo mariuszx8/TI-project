@@ -98,19 +98,17 @@ export const OrderRow = ({ order }) => {
                   <Typography variant="h6" gutterBottom component="div" mt={2}>
                     Usługi
                   </Typography>
-                  {order.services.length > 0
-                    ? order.services.map((service, id) => (
-                        <Typography
-                          key={id}
-                          gutterBottom
-                          component="div"
-                          mt={1}
-                          ml={2}
-                        >
-                          {service.name}
-                        </Typography>
-                      ))
-                    : ""}
+                  {order.services.length > 0 &&
+                    order.services.map((service, id) => (
+                      <Chip
+                        key={id}
+                        label={service.name}
+                        color="primary"
+                        sx={{
+                          mr: 1,
+                        }}
+                      />
+                    ))}
                 </div>
               )}
             </Box>

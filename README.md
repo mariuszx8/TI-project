@@ -1,6 +1,7 @@
 # TI-project
 
-Projekt zaliczeniowy z przedmiotu Techniki internetowe
+Projekt zaliczeniowy z przedmiotu Techniki internetowe.
+Aplikacja przeznaczona dla firmy sprzątającej. Pozwala na rezerwowanie terminów sprzątania i wybieranie konkretnych usług. Administrator, po zalogowaniu może przeglądać złożone zlecenia, oraz modyfikować ceny poszczególnych usług.
 
 ## Available Scripts
 

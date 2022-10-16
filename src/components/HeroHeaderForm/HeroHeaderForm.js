@@ -9,7 +9,7 @@ export const HeroHeaderForm = () => {
   const navigate = useNavigate();
 
   const incrementRooms = () => {
-    if (roomsCount < 20) setRoomsCount(roomsCount + 1);
+    if (roomsCount < 10) setRoomsCount(roomsCount + 1);
   };
 
   const decrementRooms = () => {
