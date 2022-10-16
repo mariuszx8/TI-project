@@ -12,8 +12,8 @@ export const LogoHeader = ({ title, showButton }) => {
   const isLogged = useMemo(() => Boolean(!loading && user), [loading, user]);
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const isAdminPanel = location.pathname === "/admin";
+  const { pathname } = useLocation();
+  const isAdminPanel = pathname === "/admin";
 
   return (
     <header>
@@ -25,7 +25,7 @@ export const LogoHeader = ({ title, showButton }) => {
           {title && <h2>{title}</h2>}
         </div>
 
-        {showButton && !loading && (
+        {showButton && (
           <div className="login-btn-container">
             {!isLogged && (
               <Link to="/login">

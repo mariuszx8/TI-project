@@ -26,3 +26,5 @@ export const logInWithEmailAndPassword = async (email, password) => {
 export const logout = () => {
   signOut(auth);
 };
+
+export const isLoggedIn = () => auth.currentUser;
