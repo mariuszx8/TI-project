@@ -14,10 +14,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loading) {
-      return;
-    }
-    if (user) navigate("/admin");
+    if (user && !loading) navigate("/admin");
   }, [user, loading, navigate]);
 
   const formikLogin = useFormik({

@@ -5,7 +5,7 @@ import "./HomePage.scss";
 export const HomePage = () => {
   return (
     <section className="homepage-container">
-      <LogoHeader />
+      <LogoHeader showButton />
       <HeroHeader />
     </section>
   );

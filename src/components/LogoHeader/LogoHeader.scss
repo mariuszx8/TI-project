@@ -1,5 +1,6 @@
 @import "../../assets/styles/mixins.scss";
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/text.scss";
 @import "../../assets/styles/breakpoints.scss";
 
 header {
@@ -20,6 +21,11 @@ header {
     @media #{$maxMobileXL} {
       height: 6%;
     }
+  }
+
+  div {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -45,4 +51,9 @@ header {
 
 .login-btn-container {
   @include flex-center;
+}
+
+h2 {
+  margin-left: 2rem;
+  @include pageTitleStyle;
 }

@@ -1,12 +1,12 @@
-import { LogoBar } from "../../components/LogoBar/LogoBar";
 import "./AdminPage.scss";
 import Paper from "@mui/material/Paper";
 import { OrderTable } from "../../components/OrderTable/OrderTable";
+import { LogoHeader } from "../../components/LogoHeader/LogoHeader";
 
 export const AdminPage = () => {
   return (
     <section className="adminpage-container">
-      <LogoBar title="Zamówienia" />
+      <LogoHeader title="Zamówienia" showButton />
       <section className="content-container">
         <Paper
           sx={{
